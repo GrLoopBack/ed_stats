@@ -10,10 +10,10 @@ Add the full path to your ED logs directory. It's probably:
 ```
 
 ```
-$ cd ed_plants/
+$ cd ed_stats/
 $ nano config.json
 ```
-When done, start the app while in ed_plants directory. 
+When done, start the app while in ed_stats directory. 
 
 ```
 python3 -m venv .venv
