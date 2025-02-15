@@ -23,6 +23,7 @@ When done, start the app while in ed_stats directory.
 ```
 python3 -m venv .venv
 . .venv/bin/activate
+(if first time, install flask: pip install flask)
 python app.py
 ```
 
