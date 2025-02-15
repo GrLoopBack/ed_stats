@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Elite Codex Scanner</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .section { margin-bottom: 30px; border: 1px solid #ccc; padding: 15px; }
+        .region { margin-left: 20px; }
+        .system { margin-left: 40px; }
+        .body { margin-left: 60px; }
+        .totals { margin-top: 20px; }
+        button { margin: 10px; padding: 5px 15px; }
+    </style>
+</head>
+<body>
+    <h1>Biological Codex Entries</h1>
+    
+    <form method="post" action="/scan">
+        <button type="submit">Scan Latest Logs</button>
+    </form>
+    
+    <form method="post" action="/rescan">
+        <button type="submit">Rescan Everything</button>
+    </form>
+
+    <div class="totals">
+        <h2>Totals by Species</h2>
+    <ul>
+        {% for name, count in totals.items() if name %}
+        <li>{{ name }}: {{ count }}</li>
+    {% endfor %}
+    </ul>
+
+    </div>
+
+    <h2>Detailed Breakdown</h2>
+{% for region, systems in hierarchy.items() if region %}
+<div class="section region">
+    <h3>Region: {{ region or 'Unknown' }}</h3>
+    {% for system, bodies in systems.items() if system %}
+    <div class="system">
+        <h4>System: {{ system or 'Unknown' }}</h4>
+        {% for body_id, entries in bodies.items() %}
+        <div class="body">
+            <h5>Body ID: {{ body_id or 'Unknown' }}</h5>
+            <ul>
+                {% for entry in entries if entry[0] %}
+                <li>{{ entry[0] }} ({{ entry[1] }} found)</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}
+</body>
+</html>
