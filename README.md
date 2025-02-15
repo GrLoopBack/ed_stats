@@ -1,5 +1,6 @@
 # ed_stats
 ED explorer statistics
+**This code was written by deepseek bot.** 
 
 # Configure and run
 
