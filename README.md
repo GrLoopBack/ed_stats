@@ -1,5 +1,5 @@
 # ed_stats
-ED explorer statistics
+ED aka Elite Dangerous explorer statistics
 **This code was written by deepseek bot.** 
 
 # Configure and run
